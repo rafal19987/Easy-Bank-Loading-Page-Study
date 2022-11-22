@@ -1,13 +1,66 @@
 .header {
+  &.open {
+    .overlay {
+      visibility: visible;
+      animation: fade-in 0.3s ease-in-out forwards;
+    }
+
+    .header__menu {
+      > span:first-child {
+        transform: rotate(45deg);
+      }
+
+      > span:nth-child(2) {
+        opacity: 0;
+      }
+
+      > span:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  .overlay {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    top: 3.75rem;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient($darkBlue, transparent);
+    animation: fade-out 0.3s ease-in-out forwards;
+    text-align: center;
+
+    &__menu {
+      margin: 1rem 1rem 0 1rem;
+      background-color: white;
+      border-radius: 0.3125rem;
+    }
+
+    &__menu > ul {
+      list-style-type: none;
+    }
+    &__menu > ul > li {
+      padding-top: 1rem;
+    }
+
+    &__menu > ul > li:last-child {
+      padding-bottom: 1rem;
+    }
+  }
+
   nav {
     padding: 1.0625rem 1.5rem;
   }
+
   &__logo {
     img {
       width: 8.8125rem;
       height: 1.375rem;
     }
   }
+
   &__menu {
     > span {
       display: block;
@@ -19,20 +72,6 @@
 
       &:not(:last-child) {
         margin-bottom: 0.1875rem;
-      }
-    }
-
-    &.open {
-      > span:first-child {
-        transform: rotate(45deg);
-      }
-
-      > span:nth-child(2) {
-        opacity: 0;
-      }
-
-      > span:last-child {
-        transform: rotate(-45deg);
       }
     }
   }

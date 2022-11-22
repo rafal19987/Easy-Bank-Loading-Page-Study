@@ -1,8 +1,11 @@
-console.log('connected');
-const hamburgerMenu = document.querySelector('.hamburgerBtn');
+const header = document.querySelector('.header');
+const hamburgerBtn = document.querySelector('.hamburgerBtn');
+const overlay = document.querySelector('.overlay');
 
-hamburgerMenu.addEventListener('click', () => {
-  hamburgerMenu.classList.contains('open')
-    ? hamburgerMenu.classList.remove('open')
-    : hamburgerMenu.classList.add('open');
-});
+const hideAndShowHambugerMenu = () => {
+  header.classList.contains('open')
+    ? header.classList.remove('open')
+    : header.classList.add('open');
+};
+
+hamburgerBtn.addEventListener('click', hideAndShowHambugerMenu);
